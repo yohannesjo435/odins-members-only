@@ -1,0 +1,29 @@
+{
+  "name": "odins-memeber-only",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/yohannesjo435/odins-members-only#readme",
+  "bugs": {
+    "url": "https://github.com/yohannesjo435/odins-members-only/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yohannesjo435/odins-members-only.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "app",
+  "scripts": {
+    "start": "node --watch app.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "pg": "^8.16.3"
+  },
+  "devDependencies": {
+    "dotenv": "^17.0.1"
+  }
+}
