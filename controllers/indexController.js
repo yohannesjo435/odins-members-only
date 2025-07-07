@@ -1,3 +1,6 @@
+const db = require("../db/query")
+
+
 const getIndexPage = (req, res) => {
   res.render("index")
 } 
@@ -9,10 +12,13 @@ const getSignupPage = (req, res) => {
   res.render("signup")
 }
 
-const postLogin = (req, res) => {
- 
+const postSignup = (req, res, next) => {
+ const {fullname, username, password, confirm_password} = req.body
+ console.log(fullname, username, password, confirm_password)
+ res.redirect("/")
+
 }
-const postSignup = (req, res) => {
+const postLogin = (req, res) => {
  
 }
 

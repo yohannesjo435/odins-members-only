@@ -15,16 +15,16 @@
         <a href="/signup">Signup</a>
       </div>
     </header>
-    <form action="/login" method="post">
+    <form action="/signup" method="post">
       <h3>Sign up for new account</h3>
       <label for="fullname">Fullname</label>
-      <input type="text" name="fullname" />
+      <input type="text" name="fullname" required/>
       <label for="username">Username</label>
-      <input type="text" name="username" />
+      <input type="text" name="username" required />
       <label for="password">Password</label>
-      <input type="password" name="password" />
+      <input type="password" name="password" required />
       <label for="confirm_password">Confirm password</label>
-      <input type="confirm_password" name="confirm_password" />
+      <input type="password" name="confirm_password" required />
       <button type="submit">Register</button>
     </form>
   </body>

@@ -3,6 +3,7 @@ const app = express()
 const PORT = process.env.PORT || 3002
 const indexRouter = require("./routes/indexRouter")
 const path = require("node:path")
+const pool = require("./db/pool")
 
 app.set("view engine", "ejs")
 app.set("views", path.join(__dirname, "views"))
