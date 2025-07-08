@@ -45,9 +45,7 @@ form h3 {
   font-weight: bold;
   text-decoration: underline;
 }
-form button {
-  height: 35px;
-}
+
 form input {
   height: 30px;
   background: whitesmoke;
@@ -55,4 +53,13 @@ form input {
   border: none;
   outline: none;
   padding: 0   10px;
+}
+form button {
+  height: 35px;
+  cursor: pointer;
+}
+form button:hover {
+  background-color: #0E1217;
+  color: whitesmoke;
+  border: 1px solid whitesmoke;
 }

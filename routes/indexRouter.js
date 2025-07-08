@@ -1,14 +1,19 @@
 const {Router} = require("express")
 const indexRouter = Router()
 const indexController = require("../controllers/indexController")
-const {signUpValidation} = require("../middlewares/validations") 
+const signUpValidation = require("../middlewares/validations")
+const passport = require("passport")
 
 indexRouter.get("/", indexController.getIndexPage)
 indexRouter.get("/login", indexController.getLoginPage)
-indexRouter.get("/signup", signUpValidation, indexController.getSignupPage)
+indexRouter.get("/loginout", indexController.logout)
+indexRouter.get("/signup", indexController.getSignupPage)
 
 
-indexRouter.post("/signup", indexController.postSignup)
-indexRouter.post("/login", indexController.postLogin)
+indexRouter.post("/signup", signUpValidation, indexController.postSignup)
+indexRouter.post("/login", passport.authenticate("local", {
+  successRedirect: "/",
+  failureRedirect: "/login"
+}))
 
 module.exports = indexRouter

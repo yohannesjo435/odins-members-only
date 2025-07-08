@@ -1,4 +1,4 @@
-const {body, validationResult} = require("express-validator")
+const {body} = require("express-validator")
 
 const signUpValidation = [
     body("fullname")
@@ -20,4 +20,4 @@ const signUpValidation = [
       }).withMessage("Password Don't match")
   ]
 
-module.exports = {signUpValidation}
+module.exports = signUpValidation

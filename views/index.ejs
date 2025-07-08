@@ -12,9 +12,22 @@
     
     <div class="btnWrapper">
       <a href="/login">Login</a>
+      <a href="/loginout">Loginout</a>
       <a href="/signup">Signup</a>
     </div>
   </header>
   <h1>Index page</h1>
+  <% if (locals.name){ %>
+    <h2><%= locals.name.username  %></h2>
+  <% } %>
+  <ul>
+    <% if (locals.errors) { %>
+      <pre><%= JSON.stringify(locals.errors,null, 2)  %></pre>
+      
+      <% locals.errors.forEach(err=> { %>
+         <li><strong><%= err.path %></strong>: <%= err.msg %></li>
+      <% }) %>
+    <% } %>
+  </ul>
 </body>
 </html>
