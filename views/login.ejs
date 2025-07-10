@@ -7,14 +7,7 @@
   <title>Log in</title>
 </head>
 <body>
-    <header>
-    <div class="logo"><a href="/">odins Memeber</a></div>
-    
-    <div class="btnWrapper">
-      <a href="/login">Login</a>
-      <a href="/signup">Signup</a>
-    </div>
-  </header>
+  <%- include("header")%>
   <form action="/login" method="post">
     <h3>Login</h3>  
     <label for="username">Username</label>
@@ -22,6 +15,7 @@
     <label for="password">Password</label>
     <input type="password" name="password">
     <button type="submit">Login</button>
+    <a href="/signup">Sign up</a>
   </form>
 </body>
 </html>

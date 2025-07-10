@@ -7,16 +7,7 @@
   <title>Document</title>
 </head>
 <body>
-  <header>
-    <div class="logo"><a href="/">odins Memeber</a></div>
-    
-    <div class="btnWrapper">
-      <a href="/login">Login</a>
-      <a href="/loginout">Loginout</a>
-      <a href="/signup">Signup</a>
-    </div>
-  </header>
-  <h1>Index page</h1>
+  <%- include("header")  %>
   <% if (locals.name){ %>
     <h2><%= locals.name.username  %></h2>
   <% } %>

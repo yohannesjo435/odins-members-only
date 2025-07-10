@@ -18,6 +18,14 @@ const signUpValidation = [
         }
         return true;
       }).withMessage("Password Don't match")
-  ]
+]
 
-module.exports = signUpValidation
+const postValidation = [
+  body("title").notEmpty().withMessage("Title can not be empty")
+  .isLength({min: 2, max: 200}).withMessage("Title can not exceed 200 can characters and should atleast be 5 letters"),
+  
+  body("content").notEmpty().withMessage("type message this can not be empty")
+  .isLength({min: 2, max: 1000}).withMessage("your message can not exceed 1000 characters")
+]
+
+module.exports = {signUpValidation, postValidation}

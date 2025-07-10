@@ -1,6 +1,13 @@
 const session = require("express-session")
+const pgSession = require("connect-pg-simple")(session)
+const pool = require("../db/pool")
 
 const sessionConfig = session({
+  store: new pgSession({
+    pool: pool,
+    tableName: "users_sessions",
+    createTableIfMissing: true
+  }),
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false, //don't create session untill something is stored in it

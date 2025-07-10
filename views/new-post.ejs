@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Create new post</title>
+</head>
+<body>
+  <%- include("header")  %>
+
+  <form action="/post" method="post">
+    <h3>Tweet something or post what ever!</h3>  
+    <label for="title">Title</label>
+    <input type="text" name="title" required>
+
+    <label for="content"></label>
+    <textarea name="content" rows="10" required></textarea>
+
+    <button>submit</button>
+  </form>
+</body>
+</html>

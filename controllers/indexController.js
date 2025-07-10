@@ -2,12 +2,11 @@ const db = require("../db/query")
 const bcrypt = require("bcryptjs")
 const {validationResult} = require("express-validator")
 
-
 const getIndexPage = (req, res) => {
   res.render("index", {name: req.user})
 } 
 const getLoginPage = (req, res) => {
-  res.render("login")
+  res.render("login", {name: req.user?.username})
 }
 const logout = (req, res, next) => {
   req.logout((err)=> {
@@ -19,28 +18,32 @@ const logout = (req, res, next) => {
 }
 
 const getSignupPage = (req, res) => {
-  res.render("signup")
+  res.render("signup", {name: req.user?.username})
 }
 
 const postSignup = async (req, res, next) => {
   try {
     const {fullname, username, password} = req.body
     const errors = validationResult(req) 
-   
+    console.log(errors)
     if (!errors.isEmpty()) {
-       return res.status(400).render("index", {
+       return res.status(400).render("signup",{
          errors: errors.array()
        })
     }
    
     const hashedPassword = await bcrypt.hash(password, 10)
      await db.createUser(fullname, username, hashedPassword)
-     res.redirect("/")
+     
+     res.redirect("login")
   } catch(error) {
-    //dublicate key error
+    //dublicate key error i added UNIQUIE constraint for username in db
+    // if u tryed to add existing username
+    //  it will say unique constraint was violated and the error code is 23505,
+
     if (error.code === "23505") {
-      return res.status(400).render("index", {
-      errors: [{ msg: "Username already exists", param: "username" }]
+      return res.status(400).render("signup", {
+      errors: [{ msg: "Username already exists", path: "username" }]
       })
     }
     next(error)
@@ -48,5 +51,18 @@ const postSignup = async (req, res, next) => {
 
 }
 
+const getPostPage = (req, res, next) => {
+  res.render("new-post", {name: req.user?.username})
+}
 
-module.exports = {getIndexPage, getLoginPage, logout, getSignupPage, postSignup}
+const createPost = (req, res, next) => {
+  const {title, content} = req.body
+  const {id} = req.user
+  db.createPost(title, content, id)
+
+  res.render("index", {name: req.user})
+  
+}
+
+
+module.exports = {getIndexPage, getLoginPage, logout, getSignupPage, postSignup, getPostPage, createPost}

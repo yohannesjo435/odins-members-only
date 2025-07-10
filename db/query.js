@@ -14,7 +14,7 @@ const createUser = async (fullname, username,  password ) => {
 }
 
 const createPost = async (title, content, userid) => {
-  await pool.query("INSERT INTO (title, content, userid) VALUES ($1, $2, $3);",
+  await pool.query("INSERT INTO posts(title, content, userid) VALUES ($1, $2, $3);",
     [title, content, userid]
   )
 }
