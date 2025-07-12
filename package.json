@@ -13,7 +13,7 @@
   "license": "ISC",
   "author": "",
   "type": "commonjs",
-  "main": "app",
+  "main": "app.js",
   "scripts": {
     "start": "node app.js",
     "devStart": "node --watch app.js"
