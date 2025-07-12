@@ -2,11 +2,14 @@ const pool = require("./pool")
 
 
 const getAllUserName = async () => {
-  await pool.query("SELECT * FROM users;")
+  const {rows} = await pool.query("SELECT * FROM posts;")
 }
 
 const getAllPosts = async () => {
-  await pool.query("SELECT * FORM posts;")
+  const {rows} = await pool.query(`
+    SELECT username, fullname, title, content, time FROM users 
+    INNER JOIN posts ON users.id = posts.userid ORDER BY TIME DESC;`)
+  return rows;
 }
 
 const createUser = async (fullname, username,  password ) => {
@@ -19,4 +22,4 @@ const createPost = async (title, content, userid) => {
   )
 }
 
-module.exports = {getAllUserName, getAllPosts, createUser, createPost }
+module.exports = { getAllPosts, createUser, createPost }

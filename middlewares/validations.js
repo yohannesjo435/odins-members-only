@@ -9,7 +9,7 @@ const signUpValidation = [
       .isLength({min: 2, max: 20}).withMessage("your username length should be between 2 and 20"),
     body("password")
       .trim().notEmpty()
-      .isLength({min: 6, max: 60}).withMessage("your password length should be minmum 2 and maximum 60"),
+      .isLength({min: 6, max: 60}).withMessage("your password length should be minmum 6 and maximum 60"),
     body("confirm_password")
       .trim().notEmpty()
       .custom((value, {req})=> {

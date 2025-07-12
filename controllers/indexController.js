@@ -2,8 +2,10 @@ const db = require("../db/query")
 const bcrypt = require("bcryptjs")
 const {validationResult} = require("express-validator")
 
-const getIndexPage = (req, res) => {
-  res.render("index", {name: req.user})
+const getIndexPage = async (req, res) => {
+  const allPosts = await db.getAllPosts();
+  console.log("all posts: ", allPosts)
+  res.render("index", {name: req.user, allPosts: allPosts})
 } 
 const getLoginPage = (req, res) => {
   res.render("login", {name: req.user?.username})
@@ -60,7 +62,7 @@ const createPost = (req, res, next) => {
   const {id} = req.user
   db.createPost(title, content, id)
 
-  res.render("index", {name: req.user})
+  res.redirect("/")
   
 }
 

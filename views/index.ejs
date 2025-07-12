@@ -11,6 +11,27 @@
   <% if (locals.name){ %>
     <h2><%= locals.name.username  %></h2>
   <% } %>
+
+  <% if(locals.allPosts){%>
+
+    <% locals.allPosts.forEach((posts)=> { %>
+      <div style="outline: auto; width: max-content; min-width: 300px; margin: 20px;">
+        <h3>
+          <%= posts.fullname%>
+          <%= posts.username%>
+        </h3>
+        <h3>
+          <%= posts.title %>
+        </h3>
+        
+        <p>
+          <%= posts.content %>
+          <%= posts.time.toLocaleString() %>
+        </p>
+      </div>
+    <% }) %>
+  <% } %>
+  
   <ul>
     <% if (locals.errors) { %>
       <pre><%= JSON.stringify(locals.errors,null, 2)  %></pre>
