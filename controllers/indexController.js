@@ -8,7 +8,7 @@ const getIndexPage = async (req, res) => {
   res.render("index", {name: req.user, allPosts: allPosts})
 } 
 const getLoginPage = (req, res) => {
-  res.render("login", {name: req.user?.username})
+  res.render("login", {name: req.user})
 }
 const logout = (req, res, next) => {
   req.logout((err)=> {
@@ -20,7 +20,7 @@ const logout = (req, res, next) => {
 }
 
 const getSignupPage = (req, res) => {
-  res.render("signup", {name: req.user?.username})
+  res.render("signup", {name: req.user})
 }
 
 const postSignup = async (req, res, next) => {
@@ -54,7 +54,7 @@ const postSignup = async (req, res, next) => {
 }
 
 const getPostPage = (req, res, next) => {
-  res.render("new-post", {name: req.user?.username})
+  res.render("new-post", {name: req.user})
 }
 
 const createPost = (req, res, next) => {

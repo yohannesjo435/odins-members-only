@@ -1,13 +1,23 @@
   <header>
-    <div class="logo"><a href="/">odins Memeber</a></div>
+    <a class="logo" href="/">odins <span>ጀማ</span></a>
     
-    <div class="btnWrapper">
+    
+    <div class="menuWrapper">
       <% if (locals.name){ %>
-        <a href="/post">New Post</a>
-        <a href="/loginout">Logout</a>
-        <% }else { %>
-          <a href="/login">Login</a>
-        <% } %>
-      <a href="/signup">Signup</a>
+        <div class="menu">
+          <div class="icon"></div>
+          <div class="icon"><%= locals.name.username %></div>
+          <button class="dropdownBtn" onclick="toggleDropdown()"> <i class="fa-solid fa-caret-down"></i></button>
+
+          <div class="dropdown">
+            <a href="/post">New Post</a>
+            <a href="/loginout">Logout</a>
+            <% }else { %>
+              <a href="/login">Login</a>
+            <% } %>
+            <a href="/signup">Signup</a>
+          </div>
+        </div>
+
     </div>
   </header>

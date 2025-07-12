@@ -1,10 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Menbere:wght@100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+Ethiopic:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 * {
   margin: 0;
   padding: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+:root {
+  --primary-black: #0E1217;
+  --primary-white: #FEFEFE;
+  --primary-bg: #1B3C53;
+  --secondary-bg: #456882;
+  
 }
 header {
-  background-color: #0E1217;
+  font-family: "Inter";
+  background-color: var(--primary-bg);
   color: white;
   height: 50px;
   display: flex;
@@ -13,18 +22,53 @@ header {
   padding: 10px 50px;
   font-size:  15px;
 }
-.btnWrapper {
+.logo  {
+  text-decoration: none;
+  color: var(--primary-white);
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+}
+
+.logo span {
+  font-family: "Menbere" ,"Noto Sans Ethiopic", sans-serif;
+  font-size: 1.5rem;
+}
+.menu {
+  display: flex;
+  position: relative;
+  width: 100%;
+}
+.menu button {
+  all: unset;
+  cursor: pointer;
+  padding: 0 10px;
+}
+
+.menu .dropdown {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 190%;
+  right: 0;
+  background-color: var(--secondary-bg);
+  padding: 20px 50px;
+  justify-content: space-between;
+}
+
+.menuWrapper {
   display: flex;
   gap: 10px;
 }
-.btnWrapper a {
+.menuWrapper a {
   text-decoration: none;
   color: whitesmoke;
   cursor: pointer;
   transition: 0.3s ease-in;
+  width: max-content;
+  padding: 5px 0;  
 }
-.btnWrapper a:hover {
-  font-weight: bold;
+.menuWrapper a:hover {
+  color: var(--primary-bg);
 }
 form {
   background-color: #0E1217;
@@ -65,4 +109,65 @@ form button:hover {
 }
 form textarea {
   padding: 10px;
+}
+
+/* message */
+.msg-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: max-content;
+  row-gap: 20px;
+  margin-top: 20px;
+}
+
+.msg {
+  background-color: #0E1217;
+  color: white;
+  border: 1px solid rgb(131, 102, 102);
+  width: 400px; 
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-radius: 10px;
+  font-family: "Roboto", sans-serif;
+}
+.msg .usernameWithTime {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.msg .time {
+  font-size: 0.6rem;
+  color: #dee0c9a8;
+}
+.msg .fullname {
+  font-size: 1rem;
+}
+.msg .username {
+  font-size: 0.7rem;
+  color: #dee0c9a8;
+}
+.msg .title {
+  font-size: 1rem;
+  font-weight: 500;
+}
+.msg .content {
+  font-size: 0.7rem;
+}
+
+@media (max-width: 600px) {
+  header {
+    height: 50px;
+    justify-content: space-between;
+    padding: 0 20px;
+    font-size: 13px;
+  }
+  .msg {
+    width: 80%;
+  }
+  .menu .dropdownBtn {
+    padding: 0 0 0 5px ;
+  }
 }

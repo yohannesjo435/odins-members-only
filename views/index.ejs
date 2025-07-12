@@ -3,43 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>Document</title>
+  <script src="https://kit.fontawesome.com/8baacd143d.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/style.css">
+  <script defer src="/script/script.js"></script>
+  <title>Home</title>
 </head>
 <body>
   <%- include("header")  %>
-  <% if (locals.name){ %>
-    <h2><%= locals.name.username  %></h2>
-  <% } %>
 
-  <% if(locals.allPosts){%>
+  <div class="msg-wrapper">
 
-    <% locals.allPosts.forEach((posts)=> { %>
-      <div style="outline: auto; width: max-content; min-width: 300px; margin: 20px;">
-        <h3>
-          <%= posts.fullname%>
-          <%= posts.username%>
-        </h3>
-        <h3>
-          <%= posts.title %>
+    <% if(locals.allPosts){%>
+      <% locals.allPosts.forEach((posts)=> { %>
+        <div class="msg">
+          <h3 class="fullname">
+            <%= posts.fullname%>
+          </h3>
+          <div class="usernameWithTime">
+            <h4 class="username">
+              @<%= posts.username%>
+            </h4>
+            <h6 class="time">
+              <%= posts.time.toLocaleString() %>
+            </h6>
+          </div>
+
+          <h3 class="title">
+            <%= posts.title %>
         </h3>
         
-        <p>
+        <p class="content">
           <%= posts.content %>
-          <%= posts.time.toLocaleString() %>
         </p>
       </div>
     <% }) %>
-  <% } %>
-  
-  <ul>
-    <% if (locals.errors) { %>
-      <pre><%= JSON.stringify(locals.errors,null, 2)  %></pre>
-      
-      <% locals.errors.forEach(err=> { %>
-         <li><strong><%= err.path %></strong>: <%= err.msg %></li>
-      <% }) %>
     <% } %>
-  </ul>
+    
+  </div>
+    
 </body>
 </html>
