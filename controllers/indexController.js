@@ -4,7 +4,6 @@ const {validationResult} = require("express-validator")
 
 const getIndexPage = async (req, res) => {
   const allPosts = await db.getAllPosts();
-  console.log("all posts: ", allPosts)
   res.render("index", {name: req.user, allPosts: allPosts})
 } 
 const getLoginPage = (req, res) => {

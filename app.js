@@ -15,7 +15,6 @@ app.use(express.static(path.join(__dirname, "public")))
 
 app.use(sessionConfig)
 app.use(passport.session())
-
 app.use("/", indexRouter)
 
 app.listen(PORT, ()=> {
