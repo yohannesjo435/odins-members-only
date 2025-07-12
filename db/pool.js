@@ -1,5 +1,5 @@
-const {Pool} = require("pg")
 require("dotenv").config()
+const {Pool} = require("pg")
 
 console.log("Connecting to DB:", process.env.DATABASE_URL)
 
