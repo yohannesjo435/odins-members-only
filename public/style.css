@@ -68,7 +68,7 @@ header {
   padding: 5px 0;  
 }
 .menuWrapper a:hover {
-  color: var(--primary-bg);
+  color: #D2C1B6;
 }
 form {
   background-color: #0E1217;
